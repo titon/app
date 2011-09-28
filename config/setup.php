@@ -60,10 +60,12 @@ Titon::config()
  */
 
 /**
- * Localization
+ * Globalization
  */
 
-Titon::locale()
+use \titon\libs\translators\core\DefaultTranslator;
+
+Titon::g11n()
 	->setup(array(
 		'en' => array(
 			'language' => 'English (United States)',
@@ -97,4 +99,5 @@ Titon::locale()
 			'timezone' => 'America/Mexico_City'
 		)
 	))
-	->fallback('en');
+	->fallback('en')
+	->setTranslator(new DefaultTranslator());

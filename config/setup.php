@@ -66,38 +66,35 @@ Titon::config()
 use \titon\libs\translators\core\DefaultTranslator;
 
 Titon::g11n()
-	->setup(array(
-		'en' => array(
-			'language' => 'English (United States)',
-			'iso2' => 'us',
-			'iso3' => 'usa',
-			'locale' => 'en_US',
-			'timezone' => 'America/New_York',
-			'mapping' => array('en', 'en-us', 'en_us')
-		),
-		'en-gb' => array(
-			'language' => 'English (Great Britain, United Kingdom)',
-			'iso2' => 'gb',
-			'iso3' => 'gbr',
-			'locale' => 'en_GB',
-			'fallback' => 'en',
-			'timezone' => 'Europe/London',
-		),
-		'es' => array(
-			'language' => 'Espanol (Spain)',
-			'iso2' => 'es',
-			'iso3' => 'esp',
-			'locale' => 'es_ES',
-			'timezone' => 'Europe/Madrid'
-		),
-		'es-mx' => array(
-			'language' => 'Espanol (Mexico)',
-			'iso2' => 'mx',
-			'iso3' => 'mex',
-			'locale' => 'es_MX',
-			'fallback' => 'es',
-			'timezone' => 'America/Mexico_City'
-		)
+	->setup('en', array(
+		'language' => 'English (United States)',
+		'iso2' => 'us',
+		'iso3' => 'usa',
+		'locale' => 'en_US',
+		'timezone' => 'America/New_York'
+	))
+	->setup('en-gb', array(
+		'language' => 'English (Great Britain, United Kingdom)',
+		'iso2' => 'gb',
+		'iso3' => 'gbr',
+		'locale' => 'en_GB',
+		'fallback' => 'en',
+		'timezone' => 'Europe/London',
+	))
+	->setup('es', array(
+		'language' => 'Espanol (Spain)',
+		'iso2' => 'es',
+		'iso3' => 'esp',
+		'locale' => 'es_ES',
+		'timezone' => 'Europe/Madrid'
+	))
+	->setup('es-mx', array(
+		'language' => 'Espanol (Mexico)',
+		'iso2' => 'mx',
+		'iso3' => 'mex',
+		'locale' => 'es_MX',
+		'fallback' => 'es',
+		'timezone' => 'America/Mexico_City'
 	))
 	->fallback('en')
 	->setTranslator(new DefaultTranslator());

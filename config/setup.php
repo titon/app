@@ -31,7 +31,7 @@ use \titon\core\Environment;
 
 Titon::environment()
 	->setup('development', Environment::DEVELOPMENT, array('localhost', '127.0.0.1'))
-	->fallback('development');
+	->fallbackAs('development');
 
 /**
  * Configuration
@@ -63,7 +63,7 @@ Titon::config()
  * Globalization
  */
 
-use \titon\libs\translators\core\DefaultTranslator;
+use \titon\libs\translators\core\XmlTranslator;
 
 Titon::g11n()
 	->setup('en', array(
@@ -96,5 +96,5 @@ Titon::g11n()
 		'fallback' => 'es',
 		'timezone' => 'America/Mexico_City'
 	))
-	->fallback('en')
-	->setTranslator(new DefaultTranslator());
+	->fallbackAs('en')
+	->setTranslator(new XmlTranslator());

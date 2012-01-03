@@ -63,38 +63,18 @@ Titon::config()
  * Globalization
  */
 
-use \titon\libs\translators\core\XmlTranslator;
+use \titon\libs\translators\core\PhpTranslator;
+use \titon\libs\storage\cache\FileSystemStorage;
 
 Titon::g11n()
-	->setup('en', array(
-		'language' => 'English (United States)',
-		'iso2' => 'us',
-		'iso3' => 'usa',
-		'locale' => 'en_US',
-		'timezone' => 'America/New_York'
-	))
-	->setup('en-gb', array(
-		'language' => 'English (Great Britain, United Kingdom)',
-		'iso2' => 'gb',
-		'iso3' => 'gbr',
-		'locale' => 'en_GB',
-		'fallback' => 'en',
-		'timezone' => 'Europe/London',
-	))
-	->setup('es', array(
-		'language' => 'Espanol (Spain)',
-		'iso2' => 'es',
-		'iso3' => 'esp',
-		'locale' => 'es_ES',
-		'timezone' => 'Europe/Madrid'
-	))
-	->setup('es-mx', array(
-		'language' => 'Espanol (Mexico)',
-		'iso2' => 'mx',
-		'iso3' => 'mex',
-		'locale' => 'es_MX',
-		'fallback' => 'es',
-		'timezone' => 'America/Mexico_City'
+	->setup(array(
+		'en',
+		'en-gb' => array(
+			'timezone' => 'Europe/London'
+		),
+		'es',
+		'es-mx'
 	))
 	->fallbackAs('en')
-	->setTranslator(new XmlTranslator());
+	->setTranslator(new PhpTranslator())
+	->setStorage(new FileSystemStorage(array('storage' => 'g11n')));

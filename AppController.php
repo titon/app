@@ -1,8 +1,8 @@
 <?php
 /**
- * Titon: The PHP 5.3 Micro Framework
+ * Titon: A PHP 5.4 Modular Framework
  *
- * @copyright	Copyright 2009-2010, Titon
+ * @copyright	Copyright 2010, Titon
  * @link		http://github.com/titon
  * @license		http://opensource.org/licenses/bsd-license.php (The BSD License)
  */
@@ -31,7 +31,7 @@ class AppController extends ControllerAbstract {
 	public function initialize() {
 		parent::initialize();
 		
-		$this->attachObject('session', function($self) {
+		/*$this->attachObject('session', function($self) {
 			$storage = new \titon\libs\storage\cache\FileSystemStorage(array('prefix' => 'session.'));
 			$adapter = new \titon\libs\adapters\session\CacheAdapter($storage);
 			$session = new \titon\state\Session();
@@ -54,7 +54,7 @@ class AppController extends ControllerAbstract {
 		
 		$this->view->addHelper('breadcrumb', function($self) {
 			return Titon::registry()->factory('titon\libs\helpers\html\BreadcrumbHelper');
-		});
+		});*/
 	}
 	
 }

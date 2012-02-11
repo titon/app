@@ -1,8 +1,8 @@
 <?php
 /**
- * Titon: The PHP 5.3 Micro Framework
+ * Titon: A PHP 5.4 Modular Framework
  *
- * @copyright	Copyright 2009-2010, Titon
+ * @copyright	Copyright 2010, Titon
  * @link		http://github.com/titon
  * @license		http://opensource.org/licenses/bsd-license.php (The BSD License)
  */
@@ -13,7 +13,7 @@ use \titon\Titon;
 
 /**
  * INI Settings
- * 
+ *
  * Define application specific INI settings here as this file is bootstrapped first in the dispatch cycle.
  */
 
@@ -30,8 +30,8 @@ ini_set('mbstring.func_overload', 7);
 use \titon\core\Environment;
 
 Titon::environment()
-	->setup('development', Environment::DEVELOPMENT, array('localhost', '127.0.0.1'))
-	->fallbackAs('development');
+	->setup('dev', Environment::DEVELOPMENT, array('localhost', 'titon', '127.0.0.1'))
+	->fallbackAs('dev');
 
 /**
  * Configuration
@@ -55,18 +55,20 @@ Titon::config()
 /**
  * Caching
  *
- * Setup unique storage engines to cache your data throughout your application. 
+ * Setup unique storage engines to cache your data throughout your application.
  * A storage engine implementing the Storage interface can be instantiated using the Titon::cache() system.
  */
+
+use \titon\libs\storage\cache\FileSystemStorage;
+use \titon\libs\storage\cache\MemoryStorage;
 
 /**
  * Globalization
  */
 
 use \titon\libs\translators\core\PhpTranslator;
-use \titon\libs\storage\cache\FileSystemStorage;
 
-Titon::g11n()
+/*Titon::g11n()
 	->setup(array(
 		'en',
 		'en-gb' => array(
@@ -77,4 +79,13 @@ Titon::g11n()
 	))
 	->fallbackAs('en')
 	->setTranslator(new PhpTranslator())
-	->setStorage(new FileSystemStorage(array('storage' => 'g11n')));
+	;//->setStorage(new MemoryStorage()); */
+
+
+/**
+ * Dispatching
+ */
+
+use \titon\libs\dispatchers\front\FrontLightDispatcher;
+
+Titon::dispatch()->setup(new FrontLightDispatcher());

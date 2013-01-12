@@ -1,0 +1,8 @@
+{
+	"require": {
+		"titon/common": "*",
+		"titon/environment": "*",
+		"titon/g11n": "*",
+		"titon/cache": "*"
+	}
+}

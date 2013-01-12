@@ -7,3 +7,8 @@
 
 use Titon\Route\Router;
 use Titon\Route\Route;
+
+// Custom paths
+
+// Initialize
+Router::initialize();

@@ -3,6 +3,7 @@
 		"titon/common": "*",
 		"titon/environment": "*",
 		"titon/g11n": "*",
-		"titon/cache": "*"
+		"titon/cache": "*",
+		"titon/route": "*"
 	}
 }

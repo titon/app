@@ -6,7 +6,7 @@
  */
 
 /**
- * Compare the PHP version so that the application is running in 5.4!
+ * Confirm the application has the correct PHP version.
  */
 if (version_compare(PHP_VERSION, '5.4.0') == -1) {
 	trigger_error(sprintf('Titon requires PHP 5.4.x to run correctly, please upgrade your environment. You are using %s.', PHP_VERSION), E_USER_ERROR);
@@ -29,9 +29,17 @@ define('RESOURCES_DIR', TITON . 'resources' . DS);
 define('TEMP_DIR', TITON . 'temp' . DS);
 
 /**
- * Bootstrap configuration.
+ * Initialize autoloading with Composer.
  */
-require RESOURCES_DIR . 'bootstrap/setup.php';
-require RESOURCES_DIR . 'bootstrap/environments.php';
-require RESOURCES_DIR . 'bootstrap/locales.php';
-require RESOURCES_DIR . 'bootstrap/routes.php';
+
+$composer = require_once VENDOR_DIR . 'autoload.php';
+
+\Titon\Common\Registry::set($composer, 'Composer');
+
+/**
+ * Bootstrap configuration (order does matter).
+ */
+require_once RESOURCES_DIR . 'bootstrap/setup.php';
+require_once RESOURCES_DIR . 'bootstrap/environments.php';
+require_once RESOURCES_DIR . 'bootstrap/locales.php';
+require_once RESOURCES_DIR . 'bootstrap/routes.php';

@@ -21,5 +21,6 @@ Config::set('App', [
  */
 Config::set('Resource.paths', [
 	RESOURCES_DIR,
-	MODULES_DIR . '{module}/resources'
+	MODULES_DIR . '{module}/resources',
+	VENDOR_DIR . 'titon/g11n/resources'
 ]);

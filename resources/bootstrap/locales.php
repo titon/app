@@ -5,22 +5,25 @@
  * @link		http://titon.io
  */
 
+use Titon\Common\Registry;
 use Titon\G11n\G11n;
 use Titon\G11n\Locale;
 use Titon\G11n\Translator\MessageTranslator;
 use Titon\Io\Reader\PhpReader;
 use Titon\Cache\Storage\MemoryStorage;
 
+$g11n = Registry::factory('Titon\G11n\G11n');
+
 // English (US)
-G11n::addLocale(new Locale('en_US'));
+$g11n->addLocale(new Locale('en_US'));
 
 // Set a default translator
-G11n::setTranslator(new MessageTranslator())
+$g11n->setTranslator(new MessageTranslator())
 	->setReader(new PhpReader())
 	->setStorage(new MemoryStorage());
 
 // Fallback as english
-G11n::setFallback('en');
+$g11n->setFallback('en');
 
 // Initialize
-G11n::initialize();
+$g11n->initialize();

@@ -5,10 +5,15 @@
  * @link		http://titon.io
  */
 
+use Titon\Common\Registry;
+use Titon\Route\LocaleRoute;
 use Titon\Route\Router;
 use Titon\Route\Route;
 
+$router = Registry::factory('Titon\Route\Router');
+
 // Custom paths
+$router->map(new LocaleRoute('/static/{action}', ['module' => 'common', 'controller' => 'static']));
 
 // Initialize
-Router::initialize();
+$router->initialize();

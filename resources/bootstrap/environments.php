@@ -5,19 +5,22 @@
  * @link		http://titon.io
  */
 
+use Titon\Common\Registry;
 use Titon\Environment\Environment;
 use Titon\Environment\Host;
 
+$env = Registry::factory('Titon\Environment\Environment');
+
 // Development
-Environment::addHost(new Host('dev', ['localhost', '127.0.0.', '::1']))
+$env->addHost(new Host('dev', ['localhost', '127.0.0.', '::1']))
 	->setBootstrap(RESOURCES_DIR . 'environments/dev.php');
 
 // Production
-Environment::addHost(new Host('prod', 'titon.io', Environment::PRODUCTION))
+$env->addHost(new Host('prod', 'titon.io', Environment::PRODUCTION))
 	->setBootstrap(RESOURCES_DIR . 'environments/prod.php');
 
 // Fallback as production
-Environment::setFallback('prod');
+$env->setFallback('prod');
 
 // Initialize
-Environment::initialize();
+$env->initialize();

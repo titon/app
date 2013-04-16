@@ -4,6 +4,7 @@
 		"titon/environment": "*",
 		"titon/g11n": "*",
 		"titon/cache": "*",
-		"titon/route": "*"
+		"titon/route": "*",
+		"titon/debug": "*"
 	}
 }

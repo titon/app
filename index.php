@@ -22,11 +22,11 @@ define('NS', '\\');
 /**
  * Define critical location paths.
  */
-define('TITON', __DIR__ . DS);
-define('VENDOR_DIR', TITON . 'vendor' . DS);
-define('MODULES_DIR', TITON . 'modules' . DS);
-define('RESOURCES_DIR', TITON . 'resources' . DS);
-define('TEMP_DIR', TITON . 'temp' . DS);
+define('APP_DIR', __DIR__ . DS);
+define('VENDOR_DIR', APP_DIR . 'vendor' . DS);
+define('MODULES_DIR', APP_DIR . 'modules' . DS);
+define('RESOURCES_DIR', APP_DIR . 'resources' . DS);
+define('TEMP_DIR', APP_DIR . 'temp' . DS);
 
 /**
  * Initialize autoloading with Composer.
@@ -39,7 +39,14 @@ $composer = require_once VENDOR_DIR . 'autoload.php';
 /**
  * Bootstrap configuration (order does matter).
  */
-require_once RESOURCES_DIR . 'bootstrap/setup.php';
-require_once RESOURCES_DIR . 'bootstrap/environments.php';
-require_once RESOURCES_DIR . 'bootstrap/locales.php';
-require_once RESOURCES_DIR . 'bootstrap/routes.php';
+\Titon\Debug\Debugger::initialize();
+
+$configs = array('setup', 'environments', 'locales', 'routes', 'events');
+
+foreach ($configs as $config) {
+	$path = sprintf(RESOURCES_DIR . 'bootstrap/%s.php', $config);
+
+	if (file_exists($path)) {
+		require_once $path;
+	}
+}

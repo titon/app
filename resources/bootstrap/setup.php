@@ -6,9 +6,22 @@
  */
 
 use Titon\Common\Config;
+use Titon\Debug\Debugger;
+use Titon\Debug\Logger;
 
 /**
- * Define the primary configuration used by the application.
+ * Dates should always be UTC!
+ */
+date_default_timezone_set('UTC');
+
+/**
+ * Enable the debugger and logger to handle errors and exceptions.
+ */
+Debugger::initialize();
+Debugger::setLogger(new Logger(TEMP_DIR . '/logs'));
+
+/**
+ * Define the primary configurations used by the application.
  */
 Config::set('App', [
 	'name' => 'Titon',
@@ -17,10 +30,15 @@ Config::set('App', [
 ]);
 
 /**
- * Define the available resource locations.
+ * Define available lookup paths for specific resources.
  */
-Config::set('Resource.paths', [
-	RESOURCES_DIR,
-	MODULES_DIR . '{module}/resources',
-	VENDOR_DIR . 'titon/g11n/resources'
+Config::set('Titon.path', [
+	'resources' => [
+		RESOURCES_DIR,
+		MODULES_DIR . '{module}/resources',
+		VENDOR_DIR . 'titon/g11n/resources'
+	],
+	'views' => [
+		VIEWS_DIR
+	]
 ]);

@@ -12,7 +12,7 @@ use Titon\Environment\Host;
 $env = Registry::factory('Titon\Environment\Environment');
 
 // Development
-$env->addHost(new Host('dev', ['localhost', '127.0.0.', '::1']))
+$env->addHost(new Host('dev', ['localhost', '127.0.0.1', '::1']))
 	->setBootstrap(RESOURCES_DIR . 'environments/dev.php');
 
 // Production

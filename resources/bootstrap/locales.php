@@ -13,8 +13,6 @@ use Titon\Io\Reader\PhpReader;
 use Titon\Cache\Storage\MemoryStorage;
 
 $g11n = Registry::factory('Titon\G11n\G11n');
-
-// English (US)
 $g11n->addLocale(new Locale('en_US'));
 
 // Set a default translator

@@ -6,14 +6,14 @@
  */
 
 use Titon\Common\Registry;
-use Titon\Route\LocaleRoute;
 use Titon\Route\Router;
 use Titon\Route\Route;
 
 $router = Registry::factory('Titon\Route\Router');
 
-// Custom paths
-$router->map(new LocaleRoute('/static/{action}', ['module' => 'common', 'controller' => 'static']));
+// Custom routes
+$router->map(new Route('/static/(path)', ['module' => 'common', 'controller' => 'static', 'action' => 'index']));
+$router->map(new Route('/static', ['module' => 'common', 'controller' => 'static', 'action' => 'index']));
 
 // Initialize
 $router->initialize();

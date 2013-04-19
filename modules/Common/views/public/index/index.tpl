@@ -1,3 +1,1 @@
-This is the index template.
-
-<?php echo __('pages.default.test'); ?>
+This is the index action of the index controller.

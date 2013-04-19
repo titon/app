@@ -5,7 +5,7 @@
  * @link		http://titon.io
  */
 
-use Titon\Debug\Debugger;
+use Titon\Mvc\Application;
 
-// Disable error reporting
-Debugger::enable(false);
+$app = Application::getInstance();
+$app->addModule(new Common\CommonModule('common', MODULES_DIR . 'Common'));

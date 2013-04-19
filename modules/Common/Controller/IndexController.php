@@ -5,7 +5,15 @@
  * @link		http://titon.io
  */
 
-use Titon\Debug\Debugger;
+namespace Common\Controller;
 
-// Disable error reporting
-Debugger::enable(false);
+class IndexController extends CommonController {
+
+	/**
+	 * Index action.
+	 */
+	public function index() {
+		return;
+	}
+
+}

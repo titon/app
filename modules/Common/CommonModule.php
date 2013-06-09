@@ -7,6 +7,7 @@
 
 namespace Common;
 
+use Titon\Mvc\Application;
 use Titon\Mvc\Module\AbstractModule;
 
 class CommonModule extends AbstractModule {
@@ -26,8 +27,8 @@ class CommonModule extends AbstractModule {
 	/**
 	 * Bootstrap the module by setting routes or modifying configuration.
 	 */
-	public function bootstrap() {
-		return;
+	public function bootstrap(Application $app) {
+		parent::bootstrap($app);
 	}
 
 }

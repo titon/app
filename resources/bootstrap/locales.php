@@ -18,7 +18,7 @@ $g11n->addLocale(new Locale('en_US'));
 // Set a default translator
 $g11n->setTranslator(new MessageTranslator())
 	->setReader(new PhpReader())
-	->setStorage(new MemoryStorage());
+	->setStorage(new MemoryStorage('memory'));
 
 // Fallback as english
 $g11n->setFallback('en');

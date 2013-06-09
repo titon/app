@@ -13,6 +13,13 @@ if (version_compare(PHP_VERSION, '5.4.0') == -1) {
 }
 
 /**
+ * Verify this script isn't called directly.
+ */
+if (__FILE__ === str_replace(['\\', '/'], DIRECTORY_SEPARATOR, $_SERVER['SCRIPT_FILENAME'])) {
+	trigger_error('Application failed to run. Please run through the webroot.', E_USER_ERROR);
+}
+
+/**
  * Convenience constants for the directory, path and namespace separators.
  */
 define('DS', DIRECTORY_SEPARATOR);
@@ -28,20 +35,25 @@ define('MODULES_DIR', APP_DIR . 'modules' . DS);
 define('RESOURCES_DIR', APP_DIR . 'resources' . DS);
 define('TEMP_DIR', APP_DIR . 'temp' . DS);
 define('VIEWS_DIR', APP_DIR . 'views' . DS);
+define('WEB_DIR', APP_DIR . 'web' . DS);
 
 /**
  * Initialize autoloading with Composer.
  */
 $composer = require_once VENDOR_DIR . 'autoload.php';
-$composer->add('Common', MODULES_DIR);
 
 Titon\Common\Registry::set($composer, 'Titon.composer');
 
 /**
- * Bootstrap application with configuration.
- * Order is important; routing should be triggered last.
+ * Define autoloading for local modules not installed through Composer.
  */
-foreach (['setup', 'environments', 'locales', 'events', 'modules', 'routes'] as $config) {
+$composer->add('Common', MODULES_DIR);
+
+/**
+ * Bootstrap application with configuration.
+ * Order here is extremely critical, do not change!
+ */
+foreach (['setup', 'environments', 'cache', 'locales', 'events', 'modules', 'routes'] as $config) {
 	$path = sprintf(RESOURCES_DIR . 'bootstrap/%s.php', $config);
 
 	if (file_exists($path)) {
@@ -52,5 +64,4 @@ foreach (['setup', 'environments', 'locales', 'events', 'modules', 'routes'] as 
 /**
  * Run the application!
  */
-$app = Titon\Mvc\Application::getInstance();
-$app->run();
+Titon\Mvc\Application::getInstance()->run();

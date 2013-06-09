@@ -1,0 +1,101 @@
+/**
+ * Debug styles are based on the Tomorrow Theme by Chris Kempson.
+ * https://github.com/milesj/Tomorrow-Theme
+ */
+
+.titon-debug {
+	background: #1d1f21;
+	color: #c5c8c6;
+	border-radius: 3px;
+	margin: 10px;
+	font: normal 13px "Lucida Console", Monaco, monospace;
+}
+
+.titon-debug a {
+	color: #8abeb7;
+	text-decoration: none;
+}
+
+.titon-debug a:hover { color: #fff; }
+
+.debug-file {
+	border: none;
+	cursor: help;
+	color: #969896;
+}
+
+.debug-line { color: #c5c8c6; }
+
+.debug-head {
+	display: block;
+	padding: 10px;
+	background: #282a2e;
+	border-bottom: 1px solid #373b41;
+	border-radius: 3px;
+}
+
+/* Debug/Dump */
+
+.titon-debug .debug-output { padding: 10px; }
+
+.titon-debug pre {
+	display: block;
+	margin: 0;
+	max-height: 500px;
+	overflow: auto;
+}
+
+.debug-table { border-collapse: collapse; }
+
+.debug-table td {
+	padding: 5px;
+	border: 1px solid #373b41;
+	vertical-align: top;
+}
+
+.titon-debug .titon-debug {
+	margin: 0;
+	padding: 0;
+}
+
+/* Backtrace */
+
+.titon-backtrace { padding: 5px 0; }
+
+.titon-backtrace table {
+	padding: 5px;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.titon-backtrace table tr { border-top: 1px solid #373b41; }
+.titon-backtrace table tr:first-child { border: 0; }
+.titon-backtrace table td { padding: 5px; }
+
+.titon-backtrace table .cell-no {
+	width: 50px;
+	text-align: right;
+	color: #969896;
+}
+
+.titon-backtrace ol {
+	margin: 0 0 0 35px;
+	padding: 0;
+	color: #969896;
+}
+
+.titon-backtrace ol li { margin: 5px 0; }
+
+/* Types */
+
+.debug-type.array { color: #c5c8c6; } /* white */
+.debug-type.string { color: #b5bd68; } /* green */
+.debug-type.integer,
+.debug-type.double { color: #de935f; } /* orange */
+.debug-type.null,
+.debug-type.boolean { color: #b294bb; } /* purple */
+.debug-type.object { color: #81a2be; } /* blue */
+.debug-type.function,
+.debug-type.callable { color: #cc6666; } /* red */
+.debug-type.resource { color: #f0c674; } /* yellow */
+.debug-type.unknown { color: #969896; } /* gray */

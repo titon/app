@@ -7,7 +7,7 @@
 
 /**
  * This file should be used as the index of the root web directory.
- * This will allow relative static assets like css, js, and images to work easily.
- * As well as move all vendors and application code below the root.
+ * Using this as the web root will provide easy access for static assets (css, js, img),
+ * as well as moving all vendors and application code below the root.
  */
 require_once '../index.php';

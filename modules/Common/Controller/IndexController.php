@@ -7,13 +7,19 @@
 
 namespace Common\Controller;
 
+/**
+ * Handles the root index of the application.
+ *
+ * @package Common\Controller
+ */
 class IndexController extends CommonController {
 
 	/**
 	 * Index action.
 	 */
 	public function index() {
-		return;
+		// Some kind of logic here
+		// View will automatically be rendered
 	}
 
 }

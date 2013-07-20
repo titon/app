@@ -10,6 +10,11 @@ namespace Common;
 use Titon\Mvc\Application;
 use Titon\Mvc\Module\AbstractModule;
 
+/**
+ * A module that represents common application functionality like the index or static pages.
+ *
+ * @package Common
+ */
 class CommonModule extends AbstractModule {
 
 	/**
@@ -19,8 +24,8 @@ class CommonModule extends AbstractModule {
 		parent::initialize();
 
 		$this->setControllers([
-			'index' => 'Common\Controller\IndexController',
-			'static' => 'Common\Controller\StaticController'
+			'index' => 'Common\Controller\IndexController', // /
+			'static' => 'Common\Controller\StaticController' // /static/
 		]);
 	}
 

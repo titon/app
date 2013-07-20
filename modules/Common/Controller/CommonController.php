@@ -17,6 +17,8 @@ use Titon\View\View;
 /**
  * Common controller that all other controllers should inherit.
  * Will define shared functionality.
+ *
+ * @package Common\Controller
  */
 class CommonController extends AbstractController {
 

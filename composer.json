@@ -1,11 +1,10 @@
 {
 	"require": {
-		"titon/mvc": "dev-master",
-		"titon/g11n": "dev-master",
-		"titon/cache": "dev-master",
-		"titon/debug": "dev-master",
-		"titon/environment": "dev-master",
+		"titon/mvc": "*",
+		"titon/g11n": "*",
+		"titon/cache": "*",
+		"titon/debug": "*",
+		"titon/environment": "*",
 		"psr/log": "*"
-	},
-	"minimum-stability": "dev"
+	}
 }

@@ -36,7 +36,7 @@ Config::set('Titon.path', [
 	'resources' => [
 		RESOURCES_DIR,
 		MODULES_DIR . '{module}/resources',
-		VENDOR_DIR . 'titon/g11n/resources'
+		VENDOR_DIR . 'titon/g11n/src/resources'
 	],
 	'views' => [
 		VIEWS_DIR

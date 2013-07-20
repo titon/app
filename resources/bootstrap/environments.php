@@ -9,6 +9,7 @@ use Titon\Common\Registry;
 use Titon\Environment\Environment;
 use Titon\Environment\Host;
 
+/** @type \Titon\Environment\Environment $env */
 $env = Registry::factory('Titon\Environment\Environment');
 
 // Development

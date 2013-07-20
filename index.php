@@ -53,7 +53,7 @@ $composer->add('Common', MODULES_DIR);
  * Bootstrap application with configuration.
  * Order here is extremely critical, do not change!
  */
-foreach (['setup', 'environments', 'cache', 'locales', 'events', 'modules', 'routes'] as $config) {
+foreach (['setup', 'environments', 'cache', 'locales', 'connections', 'events', 'modules', 'routes'] as $config) {
 	$path = sprintf(RESOURCES_DIR . 'bootstrap/%s.php', $config);
 
 	if (file_exists($path)) {

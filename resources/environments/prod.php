@@ -5,7 +5,16 @@
  * @link		http://titon.io
  */
 
+use Titon\Common\Config;
 use Titon\Debug\Debugger;
 
 // Disable error reporting
 Debugger::enable(false);
+
+// Set database login
+Config::set('Database.common', [
+	'host' => 'localhost',
+	'port' => 3306,
+	'user' => 'user',
+	'pass' => 'pass'
+]);

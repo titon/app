@@ -12,13 +12,14 @@ use Titon\G11n\Translator\MessageTranslator;
 use Titon\Io\Reader\PhpReader;
 use Titon\Cache\Storage\MemoryStorage;
 
+/** @type \Titon\G11n\G11n $g11n */
 $g11n = Registry::factory('Titon\G11n\G11n');
 $g11n->addLocale(new Locale('en_US'));
 
 // Set a default translator
 $g11n->setTranslator(new MessageTranslator())
 	->setReader(new PhpReader())
-	->setStorage(new MemoryStorage('memory'));
+	->setStorage(new MemoryStorage('g11n'));
 
 // Fallback as english
 $g11n->setFallback('en');

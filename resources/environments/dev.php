@@ -4,3 +4,13 @@
  * @license		http://opensource.org/licenses/bsd-license.php
  * @link		http://titon.io
  */
+
+use Titon\Common\Config;
+
+// Set database login
+Config::set('Database.common', [
+	'host' => 'localhost',
+	'port' => 3306,
+	'user' => 'root',
+	'pass' => ''
+]);

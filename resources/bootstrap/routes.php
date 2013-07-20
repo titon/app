@@ -9,6 +9,7 @@ use Titon\Common\Registry;
 use Titon\Route\Router;
 use Titon\Route\Route;
 
+/** @type \Titon\Route\Router $router */
 $router = Registry::factory('Titon\Route\Router');
 
 // Custom routes

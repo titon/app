@@ -38,16 +38,18 @@ define('VIEWS_DIR', APP_DIR . 'views' . DS);
 define('WEB_DIR', APP_DIR . 'web' . DS);
 
 /**
- * Initialize autoloading with Composer.
+ * Initialize auto-loading with Composer.
  */
 $composer = require_once VENDOR_DIR . 'autoload.php';
 
 Titon\Common\Registry::set($composer, 'Titon.composer');
 
 /**
- * Define autoloading for local modules not installed through Composer.
+ * Define auto-loading for local modules not installed through Composer.
  */
-$composer->add('Common', MODULES_DIR);
+foreach (glob(MODULES_DIR . '*', GLOB_ONLYDIR) as $modulePath) {
+	$composer->add(basename($modulePath), MODULES_DIR);
+}
 
 /**
  * Bootstrap application with configuration.

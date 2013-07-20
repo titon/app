@@ -18,6 +18,8 @@ class IndexController extends CommonController {
 	 * Index action.
 	 */
 	public function index() {
+		$this->getView()->setVariable('pageTitle', 'Titon Framework');
+
 		// Some kind of logic here
 		// View will automatically be rendered
 	}

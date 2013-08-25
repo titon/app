@@ -9,4 +9,6 @@ use Titon\Mvc\Application;
 
 /** @type \Titon\Mvc\Application $app */
 $app = Application::getInstance();
+
+// Add the common module
 $app->addModule(new Common\CommonModule('common', MODULES_DIR . 'Common'));

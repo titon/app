@@ -14,6 +14,8 @@ use Titon\Cache\Storage\MemoryStorage;
 
 /** @type \Titon\G11n\G11n $g11n */
 $g11n = Registry::factory('Titon\G11n\G11n');
+
+// Include english
 $g11n->addLocale(new Locale('en_US'));
 
 // Set a default translator

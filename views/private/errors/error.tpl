@@ -9,4 +9,4 @@
 	<b>Line:</b> <?php echo $error->getLine(); ?>
 </p>
 
-<?php Titon\backtrace($error); ?>
+<?php backtrace($error); ?>

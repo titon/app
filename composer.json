@@ -4,7 +4,7 @@
 		"titon/g11n": "*",
 		"titon/cache": "*",
 		"titon/debug": "*",
-		"titon/environment": "*",
+		"titon/env": "*",
 		"titon/model-mysql": "*",
 		"psr/log": "*"
 	}

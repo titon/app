@@ -23,7 +23,7 @@ Debugger::setLogger(new Logger(TEMP_DIR . '/logs'));
 /**
  * Define the primary configurations used by the application.
  */
-Config::set('App', [
+Config::set('app', [
 	'name' => 'Titon',
 	'salt' => 'AN3sk8ANjsSl1Hwx910APs7lq8nmsP5LQmKC',
 	'encoding' => 'UTF-8'
@@ -32,7 +32,7 @@ Config::set('App', [
 /**
  * Define available lookup paths for specific resources.
  */
-Config::set('Titon.path', [
+Config::set('titon.path', [
 	'resources' => [
 		RESOURCES_DIR,
 		MODULES_DIR . '{module}/resources',

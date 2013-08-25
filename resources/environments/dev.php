@@ -8,7 +8,7 @@
 use Titon\Common\Config;
 
 // Set database login
-Config::set('Database.common', [
+Config::set('db.common', [
 	'host' => 'localhost',
 	'port' => 3306,
 	'user' => 'root',

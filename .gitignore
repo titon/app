@@ -3,3 +3,6 @@ temp/cache/
 vendor/
 !empty
 composer.lock
+
+# Ignore symlinks
+web/common/

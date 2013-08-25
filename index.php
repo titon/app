@@ -66,4 +66,4 @@ foreach (['setup', 'environments', 'cache', 'locales', 'connections', 'events', 
 /**
  * Run the application!
  */
-Titon\Mvc\Application::getInstance()->run();
+Titon\Mvc\Application::getInstance()->run(WEB_DIR);

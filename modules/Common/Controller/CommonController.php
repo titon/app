@@ -1,8 +1,8 @@
 <?php
 /**
- * @copyright	Copyright 2010-2013, The Titon Project
- * @license		http://opensource.org/licenses/bsd-license.php
- * @link		http://titon.io
+ * @copyright   2010-2013, The Titon Project
+ * @license     http://opensource.org/licenses/bsd-license.php
+ * @link        http://titon.io
  */
 
 namespace Common\Controller;
@@ -22,21 +22,21 @@ use Titon\View\View;
  */
 class CommonController extends AbstractController {
 
-	/**
-	 * Set the view rendering layer.
-	 */
-	public function initialize() {
-		$env = Registry::factory('Titon\Environment\Environment');
+    /**
+     * Set the view rendering layer.
+     */
+    public function initialize() {
+        $env = Registry::factory('Titon\Environment\Environment');
 
-		$view = new View($this->getModule()->getViewPath());
-		$view->setEngine(new ViewEngine());
-		$view->addHelper('html', new HtmlHelper());
-		$view->addHelper('asset', new AssetHelper());
-		$view->setVariables([
-			'env' => $env->current()->getKey()
-		]);
+        $view = new View($this->getModule()->getViewPath());
+        $view->setEngine(new ViewEngine());
+        $view->addHelper('html', new HtmlHelper());
+        $view->addHelper('asset', new AssetHelper());
+        $view->setVariables([
+            'env' => $env->current()->getKey()
+        ]);
 
-		$this->setView($view);
-	}
+        $this->setView($view);
+    }
 
 }

@@ -1,8 +1,8 @@
 <?php
 /**
- * @copyright	Copyright 2010-2013, The Titon Project
- * @license		http://opensource.org/licenses/bsd-license.php
- * @link		http://titon.io
+ * @copyright   2010-2013, The Titon Project
+ * @license     http://opensource.org/licenses/bsd-license.php
+ * @link        http://titon.io
  */
 
 use Titon\Cache\Storage\MemoryStorage;
@@ -16,5 +16,5 @@ $db = Registry::factory('Titon\Model\Connection');
 
 // Load MySQL driver
 $db->addDriver(new MysqlDriver('common', Config::get('db.common')))
-	->setStorage(new MemoryStorage('sql'))
-	->setLogger(new Logger(TEMP_DIR . 'logs/'));
+    ->setStorage(new MemoryStorage('sql'))
+    ->setLogger(new Logger(TEMP_DIR . 'logs/'));

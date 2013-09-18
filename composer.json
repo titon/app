@@ -1,11 +1,11 @@
 {
-	"require": {
-		"titon/mvc": "*",
-		"titon/g11n": "*",
-		"titon/cache": "*",
-		"titon/debug": "*",
-		"titon/env": "*",
-		"titon/model-mysql": "*",
-		"psr/log": "*"
-	}
+    "require": {
+        "titon/mvc": "*",
+        "titon/g11n": "*",
+        "titon/cache": "*",
+        "titon/debug": "*",
+        "titon/env": "*",
+        "titon/model-mysql": "*",
+        "psr/log": "*"
+    }
 }

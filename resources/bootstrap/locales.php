@@ -1,8 +1,8 @@
 <?php
 /**
- * @copyright	Copyright 2010-2013, The Titon Project
- * @license		http://opensource.org/licenses/bsd-license.php
- * @link		http://titon.io
+ * @copyright   2010-2013, The Titon Project
+ * @license     http://opensource.org/licenses/bsd-license.php
+ * @link        http://titon.io
  */
 
 use Titon\Common\Registry;
@@ -20,8 +20,8 @@ $g11n->addLocale(new Locale('en_US'));
 
 // Set a default translator
 $g11n->setTranslator(new MessageTranslator())
-	->setReader(new PhpReader())
-	->setStorage(new MemoryStorage('g11n'));
+    ->setReader(new PhpReader())
+    ->setStorage(new MemoryStorage('g11n'));
 
 // Fallback as english
 $g11n->setFallback('en');

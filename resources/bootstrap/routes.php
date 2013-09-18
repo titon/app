@@ -12,16 +12,19 @@ use Titon\G11n\Route\LocaleRoute;
 /** @type \Titon\Route\Router $router */
 $router = Registry::factory('Titon\Route\Router');
 
+// Enable locale resolving
+$router->on('g11n', Registry::factory('Titon\G11n\G11n'));
+
 // Custom routes
 $router->map(new LocaleRoute('static.page', '/static/(path)', ['module' => 'common', 'controller' => 'static', 'action' => 'index']));
 $router->map(new LocaleRoute('static', '/static', ['module' => 'common', 'controller' => 'static', 'action' => 'index']));
 
 // Override for locale support
-$router->map('action.ext', new LocaleRoute('/{module}/{controller}/{action}.{ext}'));
-$router->map('action', new LocaleRoute('/{module}/{controller}/{action}'));
-$router->map('controller', new LocaleRoute('/{module}/{controller}'));
-$router->map('module', new LocaleRoute('/{module}'));
-$router->map('root', new LocaleRoute('/'));
+$router->map(new LocaleRoute('action.ext', '/{module}/{controller}/{action}.{ext}'));
+$router->map(new LocaleRoute('action', '/{module}/{controller}/{action}'));
+$router->map(new LocaleRoute('controller', '/{module}/{controller}'));
+$router->map(new LocaleRoute('module', '/{module}'));
+$router->map(new LocaleRoute('root', '/'));
 
 // Initialize
 $router->initialize();

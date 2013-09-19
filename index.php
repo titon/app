@@ -51,6 +51,9 @@ foreach (glob(MODULES_DIR . '*', GLOB_ONLYDIR) as $modulePath) {
     $composer->add(basename($modulePath), MODULES_DIR);
 }
 
+/** @type \Titon\Mvc\Application $app */
+$app = Titon\Mvc\Application::getInstance();
+
 /**
  * Bootstrap application with configuration.
  * Order here is extremely critical, do not change!
@@ -66,4 +69,4 @@ foreach (['setup', 'environments', 'cache', 'locales', 'connections', 'events', 
 /**
  * Run the application!
  */
-Titon\Mvc\Application::getInstance()->run(WEB_DIR);
+$app->run(WEB_DIR);

@@ -13,7 +13,7 @@ use Titon\G11n\Route\LocaleRoute;
 $router = Registry::factory('Titon\Route\Router');
 
 // Enable locale resolving
-$router->on('g11n', Registry::factory('Titon\G11n\G11n'));
+$router->on('g11n', $g11n);
 
 // Custom routes
 $router->map(new LocaleRoute('static.page', '/static/(path)', ['module' => 'common', 'controller' => 'static', 'action' => 'index']));

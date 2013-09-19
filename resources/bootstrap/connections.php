@@ -18,3 +18,6 @@ $db = Registry::factory('Titon\Model\Connection');
 $db->addDriver(new MysqlDriver('common', Config::get('db.common')))
     ->setStorage(new MemoryStorage('sql'))
     ->setLogger(new Logger(TEMP_DIR . 'logs/'));
+
+// Store in the app
+$app->set('db', $db);

@@ -28,3 +28,6 @@ $g11n->setFallback('en');
 
 // Initialize
 $g11n->initialize();
+
+// Store in the app
+$app->set('g11n', $g11n);

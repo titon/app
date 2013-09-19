@@ -9,8 +9,7 @@ use Titon\Common\Registry;
 use Titon\Route\Router;
 use Titon\G11n\Route\LocaleRoute;
 
-/** @type \Titon\Route\Router $router */
-$router = Registry::factory('Titon\Route\Router');
+$router = $app->getRouter();
 
 // Enable locale resolving
 $router->on('g11n', $g11n);

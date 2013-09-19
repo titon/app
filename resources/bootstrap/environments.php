@@ -25,3 +25,6 @@ $env->setFallback('prod');
 
 // Initialize
 $env->initialize();
+
+// Store in the app
+$app->set('env', $env);

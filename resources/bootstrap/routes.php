@@ -19,12 +19,5 @@ $router->on('g11n', Registry::factory('Titon\G11n\G11n'));
 $router->map(new LocaleRoute('static.page', '/static/(path)', ['module' => 'common', 'controller' => 'static', 'action' => 'index']));
 $router->map(new LocaleRoute('static', '/static', ['module' => 'common', 'controller' => 'static', 'action' => 'index']));
 
-// Override for locale support
-$router->map(new LocaleRoute('action.ext', '/{module}/{controller}/{action}.{ext}'));
-$router->map(new LocaleRoute('action', '/{module}/{controller}/{action}'));
-$router->map(new LocaleRoute('controller', '/{module}/{controller}'));
-$router->map(new LocaleRoute('module', '/{module}'));
-$router->map(new LocaleRoute('root', '/'));
-
 // Initialize
 $router->initialize();

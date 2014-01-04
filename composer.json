@@ -1,4 +1,16 @@
 {
+    "name": "titon/app",
+    "type": "library",
+    "description": "A skeleton application that conforms to the directory structure and library hierarchy suggested by the Titon framework.",
+    "keywords": ["titon", "skeleton", "app", "application"],
+    "homepage": "http://titon.io",
+    "license": "BSD-2",
+    "authors": [
+        {
+            "name": "Miles Johnson",
+            "homepage": "http://milesj.me"
+        }
+    ],
     "require": {
         "titon/mvc": "*",
         "titon/g11n": "*",

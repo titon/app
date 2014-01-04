@@ -13,10 +13,10 @@ use Titon\Io\Reader\PhpReader;
 use Titon\Cache\Storage\MemoryStorage;
 
 /** @type \Titon\G11n\G11n $g11n */
-$g11n = Registry::factory('Titon\G11n\G11n');
+$g11n = $app->get('g11n');
 
 // Include english
-$g11n->addLocale(new Locale('en_US'));
+$g11n->addLocale(new Locale('en'));
 
 // Set a default translator
 $g11n->setTranslator(new MessageTranslator())
@@ -28,6 +28,3 @@ $g11n->setFallback('en');
 
 // Initialize
 $g11n->initialize();
-
-// Store in the app
-$app->set('g11n', $g11n);

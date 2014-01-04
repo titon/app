@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><?php echo $this->html->title(); ?></title>
+    <title><?= $html->title(); ?></title>
     <?php
-    $this->asset->addStylesheet('/common/css/style.css', 'screen');
-    $this->asset->addStylesheet('/css/debug.css', 'screen', 100, 'dev');
+    $asset->addStylesheet('/common/css/style.css', []);
+    $asset->addStylesheet('/css/debug.css', [], 100, 'dev');
 
-    echo $this->asset->stylesheets(isset($env) ? $env : 'dev'); ?>
+    echo $asset->stylesheets(isset($env) ? $env : 'dev'); ?>
 </head>
-<body>
-    <?php echo $this->getContent(); ?>
+<body class="module-<?= $this->config->module; ?> controller-<?= $this->config->controller; ?> action-<?= $this->config->action; ?>">
+    <?= $this->getContent(); ?>
 </body>
 </html>

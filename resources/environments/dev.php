@@ -5,7 +5,16 @@
  * @link        http://titon.io
  */
 
+use Titon\Cache\Storage\FileSystemStorage;
 use Titon\Common\Config;
+use Titon\Mvc\Application;
+
+$app = Application::getInstance();
+
+// Use file system in dev
+$app->get('cache')->addStorage(new FileSystemStorage('default', [
+    'directory' => TEMP_DIR . 'cache/'
+]));
 
 // Set database login
 Config::set('db.common', [

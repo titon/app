@@ -1,7 +1,7 @@
 .idea
 temp/cache/
 vendor/
-!empty
+!.gitkeep
 composer.lock
 
 # Ignore symlinks

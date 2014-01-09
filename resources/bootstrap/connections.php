@@ -14,6 +14,6 @@ use Titon\Model\Mysql\MysqlDriver;
 $db = $app->get('db');
 
 // Load MySQL driver
-$db->addDriver(new MysqlDriver('common', Config::get('db.common')))
+/*$db->addDriver(new MysqlDriver('common', Config::get('db.common')))
     ->setStorage(new MemoryStorage('sql'))
-    ->setLogger(new Logger(TEMP_DIR . 'logs/'));
+    ->setLogger(new Logger(TEMP_DIR . 'logs/'));*/

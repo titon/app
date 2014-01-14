@@ -15,7 +15,7 @@ use Titon\Cache\Storage\MemoryStorage;
 /** @type \Titon\G11n\G11n $g11n */
 $g11n = $app->get('g11n');
 
-// Include english
+// Add locales
 $g11n->addLocale(new Locale('en'));
 
 // Set a default translator

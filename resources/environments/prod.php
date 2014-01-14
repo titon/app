@@ -7,16 +7,12 @@
 
 use Titon\Cache\Storage\MemcacheStorage;
 use Titon\Common\Config;
-use Titon\Debug\Debugger;
 use Titon\Mvc\Application;
 
 $app = Application::getInstance();
 
 // Use memcache in prod
 $app->get('cache')->addStorage(new MemcacheStorage('default'));
-
-// Disable error reporting
-Debugger::enable(false);
 
 // Set database login
 Config::set('db.common', [

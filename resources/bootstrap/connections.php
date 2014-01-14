@@ -8,12 +8,12 @@
 use Titon\Cache\Storage\MemoryStorage;
 use Titon\Common\Config;
 use Titon\Debug\Logger;
-use Titon\Model\Mysql\MysqlDriver;
+use Titon\Db\Mysql\MysqlDriver;
 
-/** @type \Titon\Model\Connection $db */
-$db = $app->get('db');
+/** @type \Titon\Db\Connection $db */
+/*$db = $app->get('db');
 
-// Load MySQL driver
-/*$db->addDriver(new MysqlDriver('common', Config::get('db.common')))
+// Load MySQL driver (requires db-mysql package)
+$db->addDriver(new MysqlDriver('common', Config::get('db.common')))
     ->setStorage(new MemoryStorage('sql'))
     ->setLogger(new Logger(TEMP_DIR . 'logs/'));*/

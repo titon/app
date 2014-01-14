@@ -7,6 +7,7 @@
 
 use Titon\Cache\Storage\FileSystemStorage;
 use Titon\Common\Config;
+use Titon\Debug\Debugger;
 use Titon\Mvc\Application;
 
 $app = Application::getInstance();
@@ -15,6 +16,9 @@ $app = Application::getInstance();
 $app->get('cache')->addStorage(new FileSystemStorage('default', [
     'directory' => TEMP_DIR . 'cache/'
 ]));
+
+// Enable error reporting
+Debugger::enable(true);
 
 // Set database login
 Config::set('db.common', [

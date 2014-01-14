@@ -27,7 +27,7 @@ Debugger::setLogger(new Logger(TEMP_DIR . '/logs'));
 
 /**
  * Define the handler to use for uncaught exceptions.
- * The application defaults will render an error view.
+ * The application default handler will render an error view.
  */
 Debugger::setHandler([$app, 'handleError']);
 
@@ -46,7 +46,6 @@ Config::set('app', [
 Config::set('titon.path', [
     'resources' => [
         RESOURCES_DIR,
-        MODULES_DIR . '{module}/resources',
         VENDOR_DIR . 'titon/g11n/src/resources'
     ],
     'views' => [
@@ -58,7 +57,7 @@ Config::set('titon.path', [
  * Initialize all application level components.
  */
 Application::getInstance()
-    ->set('env', new Environment())
+    ->set('env', new Environment(['bootstrapPath' => RESOURCES_DIR . 'environments/']))
     ->set('cache', new Cache())
-    ->set('g11n', new G11n())
-    ->set('db', new Connection());
+    ->set('g11n', new G11n());
+    //->set('db', new Connection());

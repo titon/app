@@ -12,13 +12,9 @@ use Titon\Environment\Host;
 /** @type \Titon\Environment\Environment $env */
 $env = $app->get('env');
 
-// Development
-$env->addHost(new Host('dev', ['localhost', '127.0.0.1', '::1']))
-    ->setBootstrap(RESOURCES_DIR . 'environments/dev.php');
-
-// Production
-$env->addHost(new Host('prod', 'titon.io', Environment::PRODUCTION))
-    ->setBootstrap(RESOURCES_DIR . 'environments/prod.php');
+// Add environments
+$env->addHost(new Host('dev', ['localhost', '127.0.0.1', '::1']));
+$env->addHost(new Host('prod', 'titon.io', Environment::PRODUCTION));
 
 // Fallback as production
 $env->setFallback('prod');

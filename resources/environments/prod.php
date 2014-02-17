@@ -1,6 +1,6 @@
 <?php
 /**
- * @copyright   2010-2013, The Titon Project
+ * @copyright   2010-2014, The Titon Project
  * @license     http://opensource.org/licenses/bsd-license.php
  * @link        http://titon.io
  */
@@ -9,15 +9,30 @@ use Titon\Cache\Storage\MemcacheStorage;
 use Titon\Common\Config;
 use Titon\Mvc\Application;
 
+/**
+ * --------------------------------------------------------------
+ *  Production
+ * --------------------------------------------------------------
+ *
+ * Configuration pertaining to production environments should
+ * be defined here. It will be bootstrapped automatically.
+ */
+
 $app = Application::getInstance();
 
-// Use memcache in prod
+/**
+ * Update caching to use Memcache.
+ */
 $app->get('cache')->addStorage(new MemcacheStorage('default'));
 
-// Set database login
-Config::set('db.common', [
+/**
+ * Define database login credentials.
+ */
+Config::set('db.default', [
     'host' => 'localhost',
     'port' => 3306,
     'user' => 'user',
-    'pass' => 'pass'
+    'pass' => 'pass',
+    'database' => '',
+    'encoding' => 'utf8'
 ]);

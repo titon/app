@@ -13,7 +13,7 @@ use Titon\Mvc\Application;
 /**
  * Validate the environment is running 5.4.
  */
-if (version_compare(PHP_VERSION, '5.4.0') == -1) {
+if (version_compare(PHP_VERSION, '5.4.0') === -1) {
     trigger_error(sprintf('Titon requires PHP 5.4 to run correctly, please upgrade your environment. You are using %s.', PHP_VERSION), E_USER_ERROR);
 }
 
@@ -43,27 +43,38 @@ define('VIEWS_DIR', APP_DIR . 'views' . DS);
 define('WEB_DIR', APP_DIR . 'web' . DS);
 
 /**
- * Initialize auto-loading with Composer.
+ * --------------------------------------------------------------
+ *  Composer Autoloader
+ * --------------------------------------------------------------
+ *
+ * Make use of Composers built-in autoloader for all classes and
+ * vendor libraries used in the application. Store a reference
+ * to composer in case we need to modify the loader.
  */
+
 $composer = require_once VENDOR_DIR . 'autoload.php';
 
 Registry::set($composer, 'titon.composer');
 
 /**
- * Define auto-loading for local modules not installed through Composer.
+ * --------------------------------------------------------------
+ *  Application Bootstrap
+ * --------------------------------------------------------------
+ *
+ * Now it's time to start the application. We can do this by
+ * instantiating a new Application object. We'll use a multiton
+ * so that we can access the Application object statically.
+ * Lastly, pass in a Request and Response object as constructor
+ * parameters, which will be passed down to child classes.
  */
-foreach (glob(MODULES_DIR . '*', GLOB_ONLYDIR) as $modulePath) {
-    $composer->add(basename($modulePath), MODULES_DIR);
-}
 
-/** @type \Titon\Mvc\Application $app */
-$app = Application::getInstance();
+$app = Application::getInstance('default', [new Request(), new Response()]);
 
 /**
- * Bootstrap application with configuration.
+ * Bootstrap the application with configuration.
  * Order here is extremely critical, do not change!
  */
-foreach (['setup', 'environments', 'cache', 'locales', 'connections', 'events', 'modules', 'routes'] as $config) {
+foreach (['setup', 'environments', 'cache', 'locales', 'database', 'modules', 'routes'] as $config) {
     $path = sprintf(RESOURCES_DIR . 'bootstrap/%s.php', $config);
 
     if (file_exists($path)) {
@@ -72,6 +83,7 @@ foreach (['setup', 'environments', 'cache', 'locales', 'connections', 'events', 
 }
 
 /**
- * Run the application!
+ * Now we can run the application. We want to pass the webroot
+ * so that symlinking of assets work properly.
  */
-$app->run(WEB_DIR, new Request(), new Response());
+$app->run(WEB_DIR);

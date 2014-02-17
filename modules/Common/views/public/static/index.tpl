@@ -1,1 +1,0 @@
-This is the index action of the static controller.

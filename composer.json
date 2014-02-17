@@ -18,5 +18,8 @@
         "titon/debug": "*",
         "titon/env": "*",
         "psr/log": "*"
+    },
+    "autoload": {
+        "psr-4": { "": "modules/" }
     }
 }

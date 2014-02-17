@@ -9,3 +9,4 @@ A skeleton application that conforms to the directory structure and library hier
 * `Cache`
 * `Debug`
 * `Env`
+* `Psr\Log`

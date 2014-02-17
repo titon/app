@@ -1,27 +1,24 @@
 <?php
 /**
- * @copyright   2010-2013, The Titon Project
+ * @copyright   2010-2014, The Titon Project
  * @license     http://opensource.org/licenses/bsd-license.php
  * @link        http://titon.io
  */
 
-namespace Common\Controller;
+namespace Main\Controller;
 
 /**
  * Handles the root index of the application.
  *
- * @package Common\Controller
+ * @package Main\Controller
  */
-class IndexController extends CommonController {
+class IndexController extends MainController {
 
     /**
      * Index action.
      */
     public function index() {
         $this->getView()->setVariable('pageTitle', 'Titon Framework');
-
-        // Some kind of logic here
-        // View will automatically be rendered
     }
 
 }

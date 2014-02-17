@@ -1,8 +1,10 @@
 .idea
 temp/cache/
 vendor/
-!.gitkeep
 composer.lock
 
 # Ignore symlinks
-web/common/
+web/main/
+
+# Keep files
+!.gitkeep

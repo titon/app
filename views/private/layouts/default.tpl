@@ -8,7 +8,7 @@
 
     echo $asset->stylesheets(isset($env) ? $env : 'dev'); ?>
 </head>
-<body class="module-<?= $this->config->module; ?> controller-<?= $this->config->controller; ?> action-<?= $this->config->action; ?>">
+<body class="<?= $this->getConfig('module') . '-' . $this->getConfig('controller') . '-' . $this->getConfig('action'); ?>">
     <?= $this->getContent(); ?>
 </body>
 </html>

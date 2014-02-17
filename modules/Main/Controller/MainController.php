@@ -1,33 +1,33 @@
 <?php
 /**
- * @copyright   2010-2013, The Titon Project
+ * @copyright   2010-2014, The Titon Project
  * @license     http://opensource.org/licenses/bsd-license.php
  * @link        http://titon.io
  */
 
-namespace Common\Controller;
+namespace Main\Controller;
 
-use Titon\Common\Registry;
-use Titon\Controller\Controller\AbstractController;
-use Titon\Mvc\Application;
+use Titon\Mvc\Controller;
+use Titon\Mvc\View;
 use Titon\View\Engine\ViewEngine;
+use Titon\View\Helper\BlockHelper;
 use Titon\View\Helper\Html\AssetHelper;
 use Titon\View\Helper\Html\HtmlHelper;
-use Titon\View\View;
 
 /**
- * Common controller that all other controllers should inherit.
- * Will define shared functionality.
+ * Main controller defines shared functionality that all other controllers should inherit.
  *
- * @package Common\Controller
+ * @package Main\Controller
  */
-class CommonController extends AbstractController {
+abstract class MainController extends Controller {
 
     /**
      * Set the view rendering layer.
      */
     public function initialize() {
-        $app = Application::getInstance();
+        parent::initialize();
+
+        $app = $this->getApplication();
 
         // Pass route params to the engine making it accessible to the view config
         $engine = new ViewEngine($app->getRouter()->current()->getParams());
@@ -38,7 +38,8 @@ class CommonController extends AbstractController {
 
         // Add helpers that can be accessible in the views
         $view->addHelper('html', new HtmlHelper());
-        $view->addHelper('asset', new AssetHelper());
+        $view->addHelper('asset', new AssetHelper(['webroot' => $app->getWebroot()]));
+        $view->addHelper('block', new BlockHelper());
 
         // Set variables that are also accessible
         $view->setVariables([

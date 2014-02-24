@@ -9,10 +9,10 @@ namespace Main\Controller;
 
 use Titon\Mvc\Controller;
 use Titon\Mvc\View;
-use Titon\View\Engine\ViewEngine;
 use Titon\View\Helper\BlockHelper;
 use Titon\View\Helper\Html\AssetHelper;
 use Titon\View\Helper\Html\HtmlHelper;
+use Titon\View\View\Engine\TemplateEngine;
 
 /**
  * Main controller defines shared functionality that all other controllers should inherit.
@@ -30,7 +30,7 @@ abstract class MainController extends Controller {
         $app = $this->getApplication();
 
         // Pass route params to the engine making it accessible to the view config
-        $engine = new ViewEngine($app->getRouter()->current()->getParams());
+        $engine = new TemplateEngine($app->getRouter()->current()->getParams());
 
         // Initiate a new view renderer with template paths set to the current module
         $view = new View($this->getModule()->getViewPath());

@@ -25,14 +25,14 @@ $cache = Application::getInstance()->get('cache');
 /**
  * Cache data for the duration of the request.
  */
-$cache->addStorage(new MemoryStorage('default'));
+$cache->addStorage('default', new MemoryStorage());
 
 /**
  * Cache globalization messages.
  */
-$cache->addStorage(new FileSystemStorage('g11n', ['directory' => TEMP_DIR . 'cache']));
+$cache->addStorage('g11n', new FileSystemStorage(['directory' => TEMP_DIR . 'cache/g11n/']));
 
 /**
  * Cache database queries.
  */
-$cache->addStorage(new FileSystemStorage('sql', ['directory' => TEMP_DIR . 'cache']));
+$cache->addStorage('sql', new FileSystemStorage(['directory' => TEMP_DIR . 'cache/sql/']));

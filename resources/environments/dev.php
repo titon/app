@@ -24,7 +24,7 @@ $app = Application::getInstance();
 /**
  * Update caching to use the file system.
  */
-$app->get('cache')->addStorage(new FileSystemStorage('default', [
+$app->get('cache')->addStorage('default', new FileSystemStorage([
     'directory' => TEMP_DIR . 'cache/'
 ]));
 

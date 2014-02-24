@@ -23,7 +23,7 @@ $app = Application::getInstance();
 /**
  * Update caching to use Memcache.
  */
-$app->get('cache')->addStorage(new MemcacheStorage('default'));
+$app->get('cache')->addStorage('default', new MemcacheStorage());
 
 /**
  * Define database login credentials.

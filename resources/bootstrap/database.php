@@ -19,13 +19,13 @@ use Titon\Mvc\Application;
 
 $app = Application::getInstance();
 
-/** @type \Titon\Db\Connection $db */
+/** @type \Titon\Db\Database $db */
 $db = $app->get('db');
 
 /**
  * Install the MySQL driver (requires db-mysql package).
  */
-/*$db->addDriver(new MysqlDriver('default', Config::get('db.default')))
+/*$db->addDriver('default', new MysqlDriver(Config::get('db.default')))
     ->setStorage($app->get('cache')->getStorage('sql'))
     ->setLogger(new Logger(TEMP_DIR . 'logs/sql/'));*/
 

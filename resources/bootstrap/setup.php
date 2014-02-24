@@ -5,14 +5,9 @@
  * @link        http://titon.io
  */
 
-use Titon\Cache\Cache;
 use Titon\Common\Config;
-use Titon\Db\Connection;
 use Titon\Debug\Debugger;
 use Titon\Debug\Logger;
-use Titon\Environment\Environment;
-use Titon\G11n\G11n;
-use Titon\Mvc\Application;
 
 /**
  * --------------------------------------------------------------
@@ -87,22 +82,3 @@ Config::set('titon.path', [
         VIEWS_DIR
     ]
 ]);
-
-/**
- * --------------------------------------------------------------
- *  Component Mapping
- * --------------------------------------------------------------
- *
- * Components are objects that should be accessed globally
- * through the application layer. These components are the
- * gears that drive the application.
- *
- * All components can be accessed through their key by
- * calling get() on the application object.
- */
-
-Application::getInstance()
-    ->set('env', new Environment(['bootstrapPath' => RESOURCES_DIR . 'environments/']))
-    ->set('cache', new Cache())
-    ->set('g11n', new G11n())
-    ->set('db', new Connection());

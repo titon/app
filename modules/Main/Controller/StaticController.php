@@ -25,7 +25,7 @@ class StaticController extends MainController {
         // Set a page title and render the view using the path
         return $this->getView()
             ->setVariable('pageTitle', Inflector::normalCase(str_replace('/', ' ', $path)))
-            ->run('static/' . $path);
+            ->render('static/' . $path);
     }
 
 }

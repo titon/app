@@ -28,4 +28,4 @@ $app = Application::getInstance();
  * Add modules that should be accessed by URL.
  * The module key will be used as the route part in the URL.
  */
-$app->addModule(new Main\MainModule('main', MODULES_DIR . 'Main'));
+$app->addModule('main', new Main\MainModule(MODULES_DIR . 'Main'));

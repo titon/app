@@ -3,7 +3,7 @@
 <head>
     <title><?= $html->title(); ?></title>
     <?php
-    $asset->addStylesheet('/common/css/style.css', []);
+    $asset->addStylesheet('/main/css/style.css', []);
     $asset->addStylesheet('/css/debug.css', [], 100, 'dev');
 
     echo $asset->stylesheets(isset($env) ? $env : 'dev'); ?>

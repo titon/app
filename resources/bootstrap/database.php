@@ -7,6 +7,8 @@
 
 use Titon\Mvc\Application;
 
+$app = Application::getInstance();
+
 /**
  * --------------------------------------------------------------
  *  Database Connections
@@ -16,8 +18,6 @@ use Titon\Mvc\Application;
  * internally by the Repository and Model classes. All drivers,
  * excluding NoSQL drivers, use and require PDO extensions.
  */
-
-$app = Application::getInstance();
 
 /** @type \Titon\Db\Database $db */
 $db = $app->get('db');

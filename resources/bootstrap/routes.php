@@ -12,6 +12,8 @@ use Titon\G11n\Route\LocaleRoute;
 use Titon\Route\Route;
 use Titon\Route\Router;
 
+$app = Application::getInstance();
+
 /**
  * --------------------------------------------------------------
  *  Routing
@@ -23,7 +25,6 @@ use Titon\Route\Router;
  * exception is thrown that triggers an error page.
  */
 
-$app = Application::getInstance();
 $router = $app->getRouter();
 
 /**

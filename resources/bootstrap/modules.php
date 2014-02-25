@@ -7,6 +7,8 @@
 
 use Titon\Mvc\Application;
 
+$app = Application::getInstance();
+
 /**
  * --------------------------------------------------------------
  *  Modules
@@ -21,8 +23,6 @@ use Titon\Mvc\Application;
  * pluggable into any application. If packaged correctly,
  * they can be installed through Composer.
  */
-
-$app = Application::getInstance();
 
 /**
  * Add modules that should be accessed by URL.

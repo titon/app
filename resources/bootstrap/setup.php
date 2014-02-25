@@ -8,6 +8,9 @@
 use Titon\Common\Config;
 use Titon\Debug\Debugger;
 use Titon\Debug\Logger;
+use Titon\Mvc\Application;
+
+$app = Application::getInstance();
 
 /**
  * --------------------------------------------------------------

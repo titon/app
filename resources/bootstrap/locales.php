@@ -10,6 +10,8 @@ use Titon\G11n\Translator\MessageTranslator;
 use Titon\Io\Reader\PhpReader;
 use Titon\Mvc\Application;
 
+$app = Application::getInstance();
+
 /**
  * --------------------------------------------------------------
  *  Globalization
@@ -20,8 +22,6 @@ use Titon\Mvc\Application;
  * locales provide pre-defined validation, inflection, and
  * formatting rules, as well as internal translation messages.
  */
-
-$app = Application::getInstance();
 
 /** @type \Titon\G11n\G11n $g11n */
 $g11n = $app->get('g11n');

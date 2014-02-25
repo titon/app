@@ -9,6 +9,8 @@ use Titon\Cache\Storage\FileSystemStorage;
 use Titon\Cache\Storage\MemoryStorage;
 use Titon\Mvc\Application;
 
+$app = Application::getInstance();
+
 /**
  * --------------------------------------------------------------
  *  Caching
@@ -20,7 +22,7 @@ use Titon\Mvc\Application;
  */
 
 /** @type \Titon\Cache\Cache $cache */
-$cache = Application::getInstance()->get('cache');
+$cache = $app->get('cache');
 
 /**
  * Cache data for the duration of the request.

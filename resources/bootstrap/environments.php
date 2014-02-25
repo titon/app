@@ -9,6 +9,8 @@ use Titon\Environment\Environment;
 use Titon\Environment\Host;
 use Titon\Mvc\Application;
 
+$app = Application::getInstance();
+
 /**
  * --------------------------------------------------------------
  *  Environments
@@ -20,7 +22,7 @@ use Titon\Mvc\Application;
  */
 
 /** @type \Titon\Environment\Environment $env */
-$env = Application::getInstance()->get('env');
+$env = $app->get('env');
 
 /**
  * Map environments by IP address or host name.

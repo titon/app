@@ -6,7 +6,7 @@
     $asset->addStylesheet('/main/css/style.css', []);
     $asset->addStylesheet('/css/debug.css', [], 100, 'dev');
 
-    echo $asset->stylesheets(isset($env) ? $env : 'dev'); ?>
+    echo $asset->stylesheets($env ?: 'prod'); ?>
 </head>
 <body class="<?= $this->getConfig('module') . '-' . $this->getConfig('controller') . '-' . $this->getConfig('action'); ?>">
     <?= $this->getContent(); ?>
